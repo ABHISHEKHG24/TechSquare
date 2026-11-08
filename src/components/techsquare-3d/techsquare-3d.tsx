@@ -145,6 +145,13 @@ const TechSquare3D = ({ className }: { className?: string }) => {
     let rotationVelocityY = 0;
 
     const onPointerDown = (e: PointerEvent) => {
+      const isTouch = e.pointerType === "touch";
+      // On mobile touch: only engage rotation when touching inside the 3D container
+      // On laptop/desktop: allow clicking and dragging from anywhere as before
+      if (isTouch && container && !container.contains(e.target as Node)) {
+        return;
+      }
+
       isDragging = true;
       setIsInteracting(true);
       previousMouseX = e.clientX;
@@ -155,14 +162,23 @@ const TechSquare3D = ({ className }: { className?: string }) => {
 
     const onPointerMove = (e: PointerEvent) => {
       if (!isDragging) return;
+      const isTouch = e.pointerType === "touch";
       const deltaX = e.clientX - previousMouseX;
       const deltaY = e.clientY - previousMouseY;
 
-      rotationVelocityY = deltaX * 0.008;
-      rotationVelocityX = deltaY * 0.008;
+      if (isTouch) {
+        // Mobile touch: Horizontal thumb swipe rotates the cube smoothly
+        // Vertical touch is left free for the browser to scroll the page (touch-pan-y)
+        rotationVelocityY = deltaX * 0.01;
+        targetRotationY += rotationVelocityY;
+      } else {
+        // Laptop / Desktop: Exact original full X & Y 360 degree drag
+        rotationVelocityY = deltaX * 0.008;
+        rotationVelocityX = deltaY * 0.008;
 
-      targetRotationY += rotationVelocityY;
-      targetRotationX += rotationVelocityX;
+        targetRotationY += rotationVelocityY;
+        targetRotationX += rotationVelocityX;
+      }
 
       previousMouseX = e.clientX;
       previousMouseY = e.clientY;
@@ -176,6 +192,7 @@ const TechSquare3D = ({ className }: { className?: string }) => {
     window.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointercancel", onPointerUp);
 
     // Animation Loop
     let animationFrameId: number;
@@ -242,6 +259,7 @@ const TechSquare3D = ({ className }: { className?: string }) => {
       window.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointercancel", onPointerUp);
       resizeObserver.disconnect();
       renderer.dispose();
       cubeGeo.dispose();
@@ -259,11 +277,11 @@ const TechSquare3D = ({ className }: { className?: string }) => {
     <div
       ref={containerRef}
       className={cn(
-        "relative w-full h-[380px] sm:h-[440px] md:h-[480px] lg:h-[520px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none",
+        "relative w-full h-[380px] sm:h-[440px] md:h-[480px] lg:h-[520px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none touch-pan-y",
         className
       )}
     >
-      <canvas ref={canvasRef} className="w-full h-full block" />
+      <canvas ref={canvasRef} className="w-full h-full block touch-pan-y" />
 
       {/* Subtle Ambient Radial Backlight */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
