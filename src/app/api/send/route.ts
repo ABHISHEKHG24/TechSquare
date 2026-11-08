@@ -3,8 +3,6 @@ import { config } from "@/data/config";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const rateLimit = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
@@ -35,6 +33,15 @@ export async function POST(req: Request) {
     if (isRateLimited(ip)) {
       return Response.json({ error: "Too many requests. Please try again later." }, { status: 429 });
     }
+
+    if (!process.env.RESEND_API_KEY) {
+      return Response.json(
+        { error: "Email service is not configured (missing RESEND_API_KEY)." },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const body = await req.json();
     const {

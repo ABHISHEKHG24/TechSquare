@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
@@ -39,7 +40,7 @@ const HeroSection = () => {
           >
             Welcome to{" "}
             <span className="inline-block drop-shadow-lg">
-              <span
+              <motion.span
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent inline-block align-baseline"
                 style={{
                   backgroundImage: "linear-gradient(to right, #22d3ee, #3b82f6, #9333ea)",
@@ -47,9 +48,11 @@ const HeroSection = () => {
                   backgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
+                animate={{ y: [0, -4, 0], scale: [1, 1.02, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
                 TechSquare
-              </span>
+              </motion.span>
             </span>
           </h1>
 
