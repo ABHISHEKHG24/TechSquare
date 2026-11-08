@@ -1,0 +1,83 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0" y1="0" x2="600" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#18181b" />
+      <stop offset="50%" stop-color="#27272a" />
+      <stop offset="100%" stop-color="#7c2d12" />
+    </linearGradient>
+    <linearGradient id="accentGrad4" x1="150" y1="100" x2="450" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+    <linearGradient id="skinGrad4" x1="250" y1="160" x2="350" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="100%" stop-color="#fde68a" />
+    </linearGradient>
+    <radialGradient id="glow4" cx="300" cy="240" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#18181b" stop-opacity="0" />
+    </radialGradient>
+    <filter id="shadow4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" rx="36" fill="url(#bgGrad4)" />
+  <circle cx="300" cy="240" r="240" fill="url(#glow4)" />
+
+  <!-- Cinema Viewfinder & Film Frame Markers -->
+  <g opacity="0.25" stroke="#f97316" stroke-width="2">
+    <!-- Viewfinder Corners -->
+    <path d="M80 120 L80 80 L120 80" fill="none" />
+    <path d="M520 120 L520 80 L480 80" fill="none" />
+    <path d="M80 480 L80 520 L120 520" fill="none" />
+    <path d="M520 480 L520 520 L480 520" fill="none" />
+    <!-- Center Target Cross -->
+    <line x1="290" y1="60" x2="310" y2="60" />
+    <line x1="300" y1="50" x2="300" y2="70" />
+    <circle cx="300" cy="250" r="160" stroke-dasharray="10 12" fill="none" />
+  </g>
+
+  <!-- Motion Orbit Ring -->
+  <circle cx="300" cy="250" r="185" stroke="url(#accentGrad4)" stroke-width="2.5" stroke-dasharray="16 10" opacity="0.7" />
+  <circle cx="300" cy="250" r="202" stroke="#eab308" stroke-width="1" opacity="0.3" />
+
+  <!-- Character -->
+  <g filter="url(#shadow4)">
+    <!-- Media Production Hoodie / Vest -->
+    <path d="M140 550 C150 430 210 390 260 380 L340 380 C390 390 450 430 460 550 Z" fill="#18181b" stroke="#3f3f46" stroke-width="2.5" />
+    <!-- Vest & Camera Strap -->
+    <path d="M190 550 L270 380 L300 390 L220 550 Z" fill="#ea580c" opacity="0.8" />
+    <path d="M260 380 L300 450 L340 380 Z" fill="#27272a" />
+
+    <!-- Neck -->
+    <rect x="278" y="320" width="44" height="68" rx="8" fill="url(#skinGrad4)" />
+
+    <!-- Studio Headphones Around Neck -->
+    <path d="M230 330 C230 380 370 380 370 330" fill="none" stroke="#52525b" stroke-width="14" stroke-linecap="round" />
+    <rect x="215" y="315" width="24" height="42" rx="10" fill="#f97316" />
+    <rect x="361" y="315" width="24" height="42" rx="10" fill="#f97316" />
+
+    <!-- Head -->
+    <rect x="235" y="170" width="130" height="165" rx="65" fill="url(#skinGrad4)" />
+
+    <!-- Hair (Creative / Tousled) -->
+    <path d="M225 205 C225 130 255 110 300 110 C345 110 375 130 375 190 C365 185 345 180 325 180 C295 180 270 190 235 205 Z" fill="#27272a" />
+    <path d="M230 170 C245 130 280 120 340 125 C310 115 270 120 245 145 Z" fill="#f97316" opacity="0.6" />
+
+    <!-- Eyes (Energetic) -->
+    <rect x="256" y="232" width="22" height="7" rx="3.5" fill="#27272a" />
+    <rect x="322" y="232" width="22" height="7" rx="3.5" fill="#27272a" />
+
+    <!-- Smile -->
+    <path d="M285 288 Q300 300 315 288" fill="none" stroke="#d97706" stroke-width="3.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Clapperboard / Video Icon Badge -->
+  <g transform="translate(420, 110)">
+    <circle cx="36" cy="36" r="34" fill="#18181b" stroke="#f97316" stroke-width="2.5" />
+    <!-- Play Triangle -->
+    <path d="M30 24 L48 36 L30 48 Z" fill="#f97316" />
+  </g>
+</svg>

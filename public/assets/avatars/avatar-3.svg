@@ -1,0 +1,80 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0" y1="0" x2="600" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#042f2e" />
+      <stop offset="50%" stop-color="#134e4a" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+    <linearGradient id="accentGrad3" x1="150" y1="100" x2="450" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+    <linearGradient id="skinGrad3" x1="250" y1="160" x2="350" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff1f2" />
+      <stop offset="100%" stop-color="#fecdd3" />
+    </linearGradient>
+    <radialGradient id="glow3" cx="300" cy="240" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#042f2e" stop-opacity="0" />
+    </radialGradient>
+    <filter id="shadow3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" rx="36" fill="url(#bgGrad3)" />
+  <circle cx="300" cy="240" r="240" fill="url(#glow3)" />
+
+  <!-- UI/UX Wireframe & Golden Ratio Guides -->
+  <g opacity="0.18" stroke="#2dd4bf" stroke-width="1.5">
+    <rect x="100" y="80" width="400" height="440" rx="20" stroke-dasharray="6 6" />
+    <circle cx="300" cy="300" r="140" stroke-dasharray="8 6" />
+    <line x1="300" y1="60" x2="300" y2="540" stroke-dasharray="4 4" />
+    <line x1="60" y1="300" x2="540" y2="300" stroke-dasharray="4 4" />
+  </g>
+
+  <!-- Creative Orbit Ring -->
+  <circle cx="300" cy="250" r="185" stroke="url(#accentGrad3)" stroke-width="2.5" stroke-dasharray="14 8" opacity="0.7" />
+  <circle cx="300" cy="250" r="200" stroke="#f43f5e" stroke-width="1" opacity="0.3" />
+
+  <!-- Character -->
+  <g filter="url(#shadow3)">
+    <!-- Designer Turtleneck / Blazer -->
+    <path d="M140 550 C150 430 210 390 260 380 L340 380 C390 390 450 430 460 550 Z" fill="#042f2e" stroke="#115e59" stroke-width="2.5" />
+    <path d="M260 380 L300 440 L340 380 Z" fill="#134e4a" />
+
+    <!-- Neck with High Collar -->
+    <rect x="278" y="315" width="44" height="70" rx="6" fill="#134e4a" />
+    <rect x="282" y="305" width="36" height="25" rx="4" fill="url(#skinGrad3)" />
+
+    <!-- Head -->
+    <rect x="235" y="170" width="130" height="165" rx="65" fill="url(#skinGrad3)" />
+
+    <!-- Sleek Bob Haircut with Emerald Accent Highlights -->
+    <path d="M215 210 C215 130 255 110 300 110 C345 110 385 130 385 210 C385 270 375 310 365 330 C355 300 355 230 350 200 C340 190 310 185 290 185 C265 185 245 195 240 215 C235 245 235 300 225 330 C218 310 215 270 215 210 Z" fill="#0f172a" />
+    <path d="M222 220 C220 160 250 120 300 120 C320 120 350 130 365 155 C345 135 310 130 280 140 C250 150 230 180 222 220 Z" fill="#2dd4bf" opacity="0.8" />
+
+    <!-- Chic Round Glasses -->
+    <circle cx="266" cy="235" r="22" fill="none" stroke="#2dd4bf" stroke-width="3.5" />
+    <circle cx="334" cy="235" r="22" fill="none" stroke="#2dd4bf" stroke-width="3.5" />
+    <line x1="288" y1="235" x2="312" y2="235" stroke="#2dd4bf" stroke-width="3" />
+    <line x1="232" y1="232" x2="244" y2="232" stroke="#2dd4bf" stroke-width="2.5" />
+    <line x1="356" y1="232" x2="368" y2="232" stroke="#2dd4bf" stroke-width="2.5" />
+
+    <!-- Glasses Glint -->
+    <path d="M255 224 Q265 220 275 224" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.9" />
+    <path d="M323 224 Q333 220 343 224" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.9" />
+
+    <!-- Smile -->
+    <path d="M285 288 Q300 298 315 288" fill="none" stroke="#e11d48" stroke-width="3.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Pen Tool / Figma Vector Badge -->
+  <g transform="translate(420, 110)">
+    <circle cx="36" cy="36" r="34" fill="#042f2e" stroke="#2dd4bf" stroke-width="2.5" />
+    <!-- Vector Pen Icon -->
+    <path d="M42 22 L50 30 L34 46 L26 46 L26 38 Z" fill="#2dd4bf" />
+    <circle cx="32" cy="38" r="2" fill="#042f2e" />
+  </g>
+</svg>
